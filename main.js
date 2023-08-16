@@ -20,15 +20,20 @@ let contador = 0;
 // ENQUANTO
 while (contador < listaDeTeclas.length) {
     //listaDeTeclas[contador].onclick = tocaSom;
+
+    const tecla = listaDeTeclas[contador];
+
+    const instrumento = tecla.classList[1];
+
+    // TEMPLATE STRING
+    const idAudio = `#som_${instrumento}`;
     
-                                      // FUNÇÃO ANONIMA
-    listaDeTeclas[contador].onclick = function () {
-        tocaSom('#som_tecla_pom');
+                    // FUNÇÃO ANONIMA
+    tecla.onclick = function () {
+        tocaSom(idAudio);
     };
 
     contador = contador + 1;
-
-    console.log(contador);
 }
 
 
