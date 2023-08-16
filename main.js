@@ -1,5 +1,13 @@
-function tocaSom (idElementoAudio) {
-    document.querySelector(idElementoAudio).play();
+function tocaSom (seletorAudio) {
+    const elemento = document.querySelector(seletorAudio).play();
+    // AO CHAMAR O ELEMENTO NO CONSOLE.LOG DO FIREFOX, ELE EXIBE AS PROPRIEDADES DO ELEMENTO, UMA VANTAGEM SOBRE O CHROME
+
+    if (elemento != null && elemento.localName === 'audio') {
+        elemento.play();
+    } else {
+        //alert('Elemento não encontrado');
+        console.log('Elemento não encontrado ou seletor inválido');
+    }
 }
 /*
 function tocaSomPom () {
@@ -47,8 +55,26 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
     
     tecla.onclick = function () {
         tocaSom(idAudio);
-    };
+    }
 
+    // EVENTO DE QUANDO O USUÁRIO PRESSIONA A TECLA
+                            // O PRIMEIRO PARAMETRO DA FUNÇÃO ANONIMA É REFERENTE AO 'EVENTO'
+    tecla.onkeydown = function (evento) {
+        // SE (DADA CONDIÇÃO FOR VERDADEIRA (TRUE)) {}
+        // === É MAIS SEGURO DO QUE APENAS ==
+        // || = OR/OU - SE PRONUNCIA 'PAIPE PAIPE'
+        if (evento.code === 'Space' || evento.code === 'Enter') {
+            tecla.classList.add('ativa');
+        }
+
+        
+        
+    }
+
+    // EVENTO DE QUANDO O USUÁRIO SOLTA A TECLA
+    tecla.onkeyup = function () {
+        tecla.classList.remove('ativa');
+    }
 }
 
 // É UMA BOA PRATICA SEMPRE DEIXAR UMA LINHA VAZIA NO FIM DO ARQUIVO!
