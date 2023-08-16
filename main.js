@@ -13,11 +13,12 @@ document.querySelector('.tecla_pom').onclick = tocaSomPom;
 
 // SE O VALOR DA VARIAVEL NUNCA FOR ALTERADO, ELA DEVE SER DECLARADA COMO UMA CONSTANTE (const)
 const listaDeTeclas = document.querySelectorAll('.tecla');
-
+/*
 // REFERENCIA VARIAVEL, QUANDO O VALOR DA REFERENCIA PODERÁ SER ALTERADO, ELA DEVE SER DECLARADA COMO (let)
 let contador = 0;
 
 // ENQUANTO
+
 while (contador < listaDeTeclas.length) {
     //listaDeTeclas[contador].onclick = tocaSom;
 
@@ -35,25 +36,19 @@ while (contador < listaDeTeclas.length) {
 
     contador = contador + 1;
 }
+*/
 
+// LOOPINGS DE FORMA MAIS DINAMICA
+for (let contador = 0; contador < listaDeTeclas.length; contador++) {
 
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    const idAudio = `#som_${instrumento}`;
+    
+    tecla.onclick = function () {
+        tocaSom(idAudio);
+    };
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// É UMA BOA PRATICA SEMPRE DEIXAR UMA LINHA VAZIA NO FIM DO ARQUIVO!
