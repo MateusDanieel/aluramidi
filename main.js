@@ -49,10 +49,15 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
         tocaSom(idAudio);
     }
 
+    // EVENTO DE QUANDO O USUÁRIO PRESSIONA A TECLA
     tecla.onkeydown = function () {
         tecla.classList.add('ativa');
     }
 
+    // EVENTO DE QUANDO O USUÁRIO SOLTA A TECLA
+    tecla.onkeyup = function () {
+        tecla.classList.remove('ativa');
+    }
 }
 
 // É UMA BOA PRATICA SEMPRE DEIXAR UMA LINHA VAZIA NO FIM DO ARQUIVO!
