@@ -50,8 +50,14 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
     }
 
     // EVENTO DE QUANDO O USUÁRIO PRESSIONA A TECLA
-    tecla.onkeydown = function () {
-        tecla.classList.add('ativa');
+                            // O PRIMEIRO PARAMETRO DA FUNÇÃO ANONIMA É REFERENTE AO 'EVENTO'
+    tecla.onkeydown = function (evento) {
+        // SE (DADA CONDIÇÃO FOR VERDADEIRA (TRUE)) {}
+        // === É MAIS SEGURO DO QUE APENAS ==
+        if (evento.code === 'Space') {
+            tecla.classList.add('ativa');
+        }
+        
     }
 
     // EVENTO DE QUANDO O USUÁRIO SOLTA A TECLA
