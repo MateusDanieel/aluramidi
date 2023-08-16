@@ -54,9 +54,12 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
     tecla.onkeydown = function (evento) {
         // SE (DADA CONDIÇÃO FOR VERDADEIRA (TRUE)) {}
         // === É MAIS SEGURO DO QUE APENAS ==
-        if (evento.code === 'Space') {
+        // || = OR/OU - SE PRONUNCIA 'PAIPE PAIPE'
+        if (evento.code === 'Space' || evento.code === 'Enter') {
             tecla.classList.add('ativa');
         }
+
+        
         
     }
 
